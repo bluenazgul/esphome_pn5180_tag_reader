@@ -1,7 +1,7 @@
 # esphome_pn5180_tag_reader
 PN5180 ESPhome Tag Reader for Home Assistant
 
-This is designed for SLIX-L Tags which i bought from RFIDFriend
+This is designed for SLIX-L Tags which i bought from RFIDFriend http://rfidfriend.com/
 
 Used Hardware: https://github.com/Hasenpups/PN5180_ESP_Reader/tree/main
 
