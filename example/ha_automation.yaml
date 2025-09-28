@@ -1,0 +1,54 @@
+alias: Papa Roach - Infest
+description: ""
+triggers:
+  - trigger: tag
+    tag_id: E0040350xxxxxxxx
+    id: tag_on
+  - trigger: event
+    event_type: esphome.tag_removed
+    event_data:
+      tag_id: E0040350xxxxxxxx
+    id: tag_off
+conditions: []
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: tag_on
+        sequence:
+          - action: media_player.play_media
+            target:
+              entity_id: media_player.wohnzimmer
+            data:
+              media:
+                media_content_id: >-
+                  spotify://01jh0f96behwc0rdsdydf0tx6v/spotify:album:0BHa0ePkvGAVKymB4FU58m
+                media_content_type: spotify://album
+                metadata:
+                  title: Infest
+                  thumbnail: >-
+                    https://i.scdn.co/image/ab67616d0000b273985bf5ede2fe4a048ee85f28
+                  media_class: album
+                  children_media_class: track
+                  navigateIds:
+                    - {}
+                    - media_content_type: spotify://library
+                      media_content_id: spotify://01JH0F96BEHWC0RDSDYDF0TX6V
+                    - media_content_type: spotify://current_user_followed_artists
+                      media_content_id: >-
+                        spotify://01jh0f96behwc0rdsdydf0tx6v/current_user_followed_artists
+                    - media_content_type: spotify://artist
+                      media_content_id: >-
+                        spotify://01jh0f96behwc0rdsdydf0tx6v/spotify:artist:4RddZ3iHvSpGV4dvATac9X
+                    - media_content_type: spotify://album
+                      media_content_id: >-
+                        spotify://01jh0f96behwc0rdsdydf0tx6v/spotify:album:0BHa0ePkvGAVKymB4FU58m
+      - conditions:
+          - condition: trigger
+            id: tag_off
+        sequence:
+          - action: media_player.media_stop
+            target:
+              entity_id: media_player.wohnzimmer
+            data: {}
+mode: single
